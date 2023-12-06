@@ -1,0 +1,6 @@
+bg: #171920
+black: rgb(25,26,31)
+purple: rgb(89,8,255)
+pink: rgb(211,142,254)
+blue: rgb(100,123,252)
+pink-light: rgb(245,0,97)

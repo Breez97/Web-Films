@@ -1,0 +1,71 @@
+.container-header 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-family: 'Montserrat-Medium', Arial;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.container-header > div
+{
+    margin: auto;
+}
+
+.logo
+{
+    width: 200px;
+    font-family: 'Montserrat-Bold', Arial;
+    font-size: 30px;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, rgb(100,123,252), rgb(245,0,97));
+}
+
+.search-authorization
+{
+    width: 150px;
+    display: flex;
+}
+
+.search-authorization > div
+{
+    margin: auto;
+}
+
+.search, .authorization
+{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+}
+
+.search
+{
+    background-image: url(../images/main_window/search.png);
+}
+
+.authorization
+{
+    background-image: url(../images/main_window/acc.png);
+}
+
+a:not(.logo-button):hover
+{
+    transition: .4s;
+    color: rgb(245,0,97);
+}
+
+a:not(.logo-button):hover.authorization
+{
+    background-image: url(../images/main_window/acc_hovered.png);
+}
+
+a:not(.logo-button):hover.search
+{
+    background-image: url(../images/main_window/search_hovered.png);
+}
