@@ -1,9 +1,10 @@
 <html>
     <head>
         <title>Регистрация</title>
-        <link rel="stylesheet" href="css/css_common.css">
-        <link rel="stylesheet" href="css/css_fonts.css">
-        <link rel="stylesheet" href="css/css_auth_reg.css">
+        <link rel="icon" type="image/x-icon" href="../icon.ico">
+        <link rel="stylesheet" href="../css/css_common.css">
+        <link rel="stylesheet" href="../css/css_fonts.css">
+        <link rel="stylesheet" href="../css/css_auth_reg.css">
     </head>
     <body>
         <table class="form-container" height=70%>
@@ -21,7 +22,7 @@
                         $password = $_POST['password_new'];
                         $email = $_POST['email_new'];
                         
-                        include "connection.php";
+                        include "../connection.php";
 
                         $result = mysqli_query($descr, "SELECT * FROM users_auth WHERE login='$login' OR email='$email'");
                         $is_found = 0;
@@ -41,10 +42,10 @@
                                 if($is_found_new_user == 1)
                                 {
                                     printf("
-                                    <form id='goToMain' action='main.php' method='POST'>
+                                    <form id='go_to_main' action='../main.php' method='POST'>
                                         <input type='hidden' name='user_id' value=$user_id>
                                     </form>
-                                    <script>document.getElementById('goToMain').submit();</script>
+                                    <script>document.getElementById('go_to_main').submit();</script>
                                     ");
                                 }
                             }
@@ -93,8 +94,11 @@
                         <button type="submit">Зарегистрироваться</button>
                     </form>
                     <div class="login-text_small">Уже есть аккаунт? <a href="auth.php"><b>Войти</b></a></div>
+                    <form action="../main.php" method="POST">
+                        <button type="submit">Вернуться на главную</button>
+                    </form>
                 </td>
-                <td class="image-column"><img src="images/auth_reg/reg_img.png"></td>
+                <td class="image-column"><img src="../images/auth_reg/reg_img.png"></td>
             </tr>
         </table>
     </body>

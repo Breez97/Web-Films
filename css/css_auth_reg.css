@@ -31,7 +31,7 @@
     margin: 15px 0 0 0;
 }
 
-.login, .login-text, .login-text_small
+.login, .login-text
 {
     color: black;
     margin: 15px 0 15px 0;
@@ -51,8 +51,10 @@
 
 .login-text_small
 {
+    color: black;
     font-family: 'Montserrat-Light';
     font-size: 13px;
+    margin: 15px 0 0 0;
 }
 
 .input-field
@@ -77,16 +79,17 @@ button
     outline: none;
     color: white;
     cursor: pointer;
+    transition: .4s;
 }
 
 button:hover
 {
-    transition: .5s;
+    transition: .4s;
     background: rgb(245,0,97);
 }
 
 a:hover
 {
-    transition: .5s;
+    transition: .4s;
     color: rgb(245,0,97);
 }

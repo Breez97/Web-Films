@@ -1,12 +1,15 @@
 <html>
     <head>
         <title>Киномания</title>
+        <link rel="icon" type="image/x-icon" href="icon.ico">
         <link rel="stylesheet" href="css/css_common.css">
         <link rel="stylesheet" href="css/css_fonts.css">
         <link rel="stylesheet" href="css/css_main.css">
+        <link rel="stylesheet" href="css/css_carousel.css">
     </head>
     <body>
         <?php
+            $user_id = NULL;
             if(isset($_POST["user_id"]))
             {
                 $user_id = $_POST["user_id"];
@@ -36,7 +39,20 @@
                     <a href="search.php" class="search"></a>
                 </div>
                 <div>
-                    <a href="auth.php" class="authorization"></a>
+                    <?php
+                        if($user_id == NULL)
+                        {
+                            printf("
+                                <a href='auth_and_reg/auth.php' class='authorization'></a>
+                            ");
+                        }
+                        else
+                        {
+                            printf("
+                                <a href='account.php' class='personal-account'></a>
+                            ");
+                        }
+                    ?>
                 </div>
             </div>
         </div>
