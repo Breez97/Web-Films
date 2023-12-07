@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="css/css_common.css">
         <link rel="stylesheet" href="css/css_fonts.css">
         <link rel="stylesheet" href="css/css_main.css">
-        <link rel="stylesheet" href="css/css_carousel.css">
+        <link rel="stylesheet" href="css/css_sliders.css">
     </head>
     <body>
         <?php
@@ -22,6 +22,22 @@
                 printf("<h1>$name</h1>");
             }
         ?>
+
+        <div class="slider middle">
+            <div class="slides">
+                <input type="radio" name="r" id="r1" checked>
+                <input type="radio" name="r" id="r2">
+
+                <div class="slide s1"><img src="carousel/cool_guy.png"></div>
+                <div class="slide s2"><img src="carousel/bladerunner.png"></div>
+            </div>
+
+            <div class="navigation">
+                <label for="r1" class="bar"></label>
+                <label for="r2" class="bar"></label>            
+            </div>
+        </div>
+
         <div class="container-header">
             <div class="logo">
                 <a href="main.php" class="logo-button">Киномания</a>
