@@ -28,14 +28,21 @@
                 <input type="radio" name="r" id="r1" checked>
                 <input type="radio" name="r" id="r2">
 
-                <div class="slide s1"><img src="carousel/cool_guy.png"></div>
-                <div class="slide s2"><img src="carousel/bladerunner.png"></div>
+                <div class="slide s1">
+                    <div class="film-title">Главный герой</div>
+                    <img src="carousel/good_guy.png">
+                </div>
+                <div class="slide s2">
+                    <div class="film-title">Бегущий по лезвию</div>
+                    <img src="carousel/bladerunner.png">              
+                </div>
             </div>
+            <div class="darker"></div>
+        </div>
 
-            <div class="navigation">
-                <label for="r1" class="bar"></label>
-                <label for="r2" class="bar"></label>            
-            </div>
+        <div class="navigation">
+            <label for="r1" class="bar"></label>
+            <label for="r2" class="bar"></label>            
         </div>
 
         <div class="container-header">

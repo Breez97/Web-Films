@@ -10,7 +10,7 @@
     position: relative;
     z-index: 2;
     height: 130px;
-    background-image: linear-gradient(to top, rgba(23, 41, 32, 0.15), rgba(23, 41, 32, 0.75));
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.75));
     backdrop-filter: blur(3px);
 }
 
