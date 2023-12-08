@@ -1,33 +1,125 @@
-.container-header 
+body
+{
+    background-color: rgb(23, 25, 32);
+    margin: 0;
+    padding: 0;
+}
+
+a 
+{
+    text-decoration: none;
+    color: inherit;
+    background: none;
+    transition: .4s;
+}
+
+.main-container
 {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    color: white;
-    font-family: 'Montserrat-Medium', Arial;
-    font-size: 20px;
-    text-align: center;
+    height: 100%;
+}
+
+/* Заголовок */
+
+.header-container 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 500px;
+    width: 100%;
     position: relative;
+}
+
+.slider 
+{
+    margin-top: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+input[name="r"]
+{
+    position: absolute;
+    visibility: hidden;
+}
+
+.slides
+{
+    width: 400%;
+    height: 100%;
+    display: flex;
+}
+
+.slide
+{
+    position: relative;
+    width: 25%;
+    transition: all .6s ease;
+}
+
+.slide img 
+{
+    width: 100%;
+    height: 140%;
+    object-fit: cover;
+    object-position: 0 10%;
+}
+
+#r1:checked ~ .s1 
+{
+    margin-left: 0;
+}
+
+#r2:checked ~ .s1 
+{
+    margin-left: -25%;
+}
+
+#r3:checked ~ .s1 
+{
+    margin-left: -50%;
+}
+
+#r4:checked ~ .s1 
+{
+    margin-left: -75%;
+}
+
+.website-navigation 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
     z-index: 2;
-    height: 130px;
+    position: absolute;
+    top: 0;
+    height: 100px;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.75));
     backdrop-filter: blur(3px);
 }
 
-.container-header > div
-{
-    margin: 30px 50px 30px 50px;
-}
-
 .logo
 {
-    width: 200px;
     font-family: 'Montserrat-Bold', Arial;
     font-size: 30px;
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
     background-image: linear-gradient(to right, rgb(100,123,252), rgb(245,0,97));
+}
+
+.text-links
+{
+    font-family: 'Montserrat-Medium', Arial;
+    font-size: 20px;
+    color: white;
 }
 
 .search-authorization
@@ -38,10 +130,10 @@
 
 .search-authorization > div
 {
-    margin: auto;
+    margin-left: 20px;
 }
 
-.search, .authorization
+.search, .authorization, .logout, .acc
 {
     display: block;
     width: 30px;
@@ -59,18 +151,96 @@
     background-image: url(../images/main_window/acc.png);
 }
 
+.logout
+{
+    background-image: url(../images/main_window/exit.png);
+}
+
+.acc
+{
+    background-image: url(../images/main_window/acc_auth.png);
+}
+
+
 a:not(.logo-button):hover
 {
     transition: .4s;
     color: rgb(245,0,97);
 }
 
-a:not(.logo-button):hover.authorization
+.search:hover
+{
+    background-image: url(../images/main_window/search_hovered.png);
+}
+
+.authorization:hover
 {
     background-image: url(../images/main_window/acc_hovered.png);
 }
 
-a:not(.logo-button):hover.search
+.logout:hover
 {
-    background-image: url(../images/main_window/search_hovered.png);
+    background-image: url(../images/main_window/exit_hovered.png);
+}
+
+.acc:hover
+{
+    background-image: url(../images/main_window/acc_auth_hovered.png);
+}
+
+.info
+{
+    position: absolute;
+    top: 410px;
+    left: 10%;
+    transform: translateX(-10%);
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    width: 100%;
+    text-shadow: #000000 0 0 20px;
+    background-color: rgba(0, 0, 0, .5);
+    justify-content: center;
+    z-index: 2;
+}
+
+.film-title
+{
+    font-family: 'Montserrat-Bold';
+    font-size: 50px;
+}
+
+.darker
+{
+    position: absolute;
+    bottom: 0px;
+    height: 200px;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(23, 25, 32, 0), rgba(23, 25, 32, 1));
+    text-align: center;
+    color: rgba(255,255,255,0);
+    z-index: 1;
+}
+
+
+/* Основной контент */
+
+.content-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 700px;
+    width: 100%;
+}
+
+/* Ссылки */
+
+.footer-container
+{
+    display: flex;
+    flex-direction: row;
+    min-height: 100px;
+    width: 100%;
+    background-color: green;
 }

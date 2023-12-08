@@ -2,7 +2,6 @@
     <head>
         <title>Авторизация</title>
         <link rel="icon" type="image/x-icon" href="../icon.ico">
-        <link rel="stylesheet" href="../css/css_common.css">
         <link rel="stylesheet" href="../css/css_fonts.css">
         <link rel="stylesheet" href="../css/css_auth_reg.css">
     </head>
@@ -11,32 +10,31 @@
             <tr>
                 <td class="image-column"><img src="../images/auth_reg/login_img.png"></td>
                 <td class="form-column">
-
                     <?php
+
                         $login = NULL;
-                        $password= NULL;
-                        if($_SERVER["REQUEST_METHOD"] == "POST")
-                        {
+                        $password = NULL;
+
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $login = $_POST["login_input"];
                             $password = $_POST["password_input"];
 
                             include "../connection.php";
 
                             $result = mysqli_query($descr, "SELECT * FROM users_auth WHERE (login='$login' OR email='$login') AND password='$password'");
-                            $is_found = 0;
-                            while($array = mysqli_fetch_array($result))
-                            {
+                            
+                            $is_found = false;
+                            
+                            while ($array = mysqli_fetch_array($result)) {
                                 $user_id = $array['id'];
-                                $is_found = 1;
+                                $is_found = true;
                             }
-                            if($is_found == 1)
-                            {
-                                printf("
-                                <form id='got_to_main' action='../main.php' method='POST'>
-                                    <input type='hidden' name='user_id' value=$user_id>
-                                </form>
-                                <script>document.getElementById('got_to_main').submit();</script>
-                                ");
+
+                            if ($is_found) {
+                                session_start();
+                                $_SESSION['user_id'] = $user_id;
+                                header("Location: ../main.php");
+                                exit();
                             }
                         }
                     ?>
