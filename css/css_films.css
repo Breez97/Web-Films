@@ -1,0 +1,380 @@
+body
+{
+    background-color: rgb(23, 25, 32);
+    margin: 0;
+    padding: 0;
+}
+
+a 
+{
+    text-decoration: none;
+    color: inherit;
+    background: none;
+    transition: .4s;
+}
+
+/* Заголовок */
+
+.header-container 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100px;
+    width: 100%;
+    position: relative;
+}
+
+.website-navigation 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    height: 100px;
+    background-color: rgb(31, 34, 44);
+}
+
+.logo
+{
+    font-family: 'Montserrat-Bold', Arial;
+    font-size: 30px;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right, rgb(100,123,252), rgb(245,0,97));
+}
+
+.text-links
+{
+    font-family: 'Montserrat-Medium', Arial;
+    font-size: 20px;
+    color: white;
+}
+
+.search-authorization
+{
+    width: 150px;
+    display: flex;
+}
+
+.search-authorization > div
+{
+    margin-left: 20px;
+}
+
+.search, .authorization, .logout, .acc
+{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+}
+
+.search
+{
+    background-image: url(../images/main_window/search.png);
+}
+
+.authorization
+{
+    background-image: url(../images/main_window/acc.png);
+}
+
+.logout
+{
+    background-image: url(../images/main_window/exit.png);
+}
+
+.acc
+{
+    background-image: url(../images/main_window/acc_auth.png);
+}
+
+
+a:not(.logo-button):hover
+{
+    transition: .4s;
+    color: rgb(245,0,97);
+}
+
+.search:hover
+{
+    background-image: url(../images/main_window/search_hovered.png);
+}
+
+.authorization:hover
+{
+    background-image: url(../images/main_window/acc_hovered.png);
+}
+
+.logout:hover
+{
+    background-image: url(../images/main_window/exit_hovered.png);
+}
+
+.acc:hover
+{
+    background-image: url(../images/main_window/acc_auth_hovered.png);
+}
+
+/* Основной контент */
+
+.main-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 600px;
+}
+
+.top-text
+{
+    color: white;
+    font-family: 'Montserrat-Bold', 'Arial';
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.top-films-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+}
+
+.top-film
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    border: 5px solid white;
+    box-shadow: 0 0 20px rgb(89,8,255);
+    border-color: rgb(89,8,255);
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.top-film:hover
+{
+    transform: rotate(-5deg) scale(1.1);
+    box-shadow: 0 0 20px rgb(245,0,97);
+    border-color: rgb(245,0,97);
+}
+
+.top-film-image
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+    opacity: 1;
+}
+
+.top-film:hover .top-film-image
+{
+    opacity: 0;
+}
+
+.text-description
+{
+    position: absolute;
+    color: white;
+    opacity: 0;
+}
+
+.text-description-title
+{
+    font-family: 'Montserrat-Bold', 'Arial';
+    font-size: 30px;
+    margin: 10px;
+}
+
+.text-description-genre
+{
+    font-family: 'Montserrat-Regular', 'Arial';
+    font-size: 20px;
+    margin: 10px;
+}
+
+.top-film:hover .text-description
+{
+    opacity: 1;
+}
+
+.selection-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 350px;
+    margin-top: 10px;
+}
+
+.cards-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 350px;
+    width: 100%;
+}
+
+.film-card
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 450px;
+    height: 300px;
+    border-radius: 20px;
+    color: white;
+    border: 5px solid white;
+    box-shadow: 0 0 20px rgb(245,0,97);
+    border-color: rgb(245,0,97);
+    transition: .4s;
+}
+
+.film-image
+{
+    width: 100%;
+    min-height: 200px;
+}
+
+.film-image img
+{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.film-title
+{
+    width: 100%;
+    background-color: rgb(31, 34, 44);
+    font-family: 'Montserrat-Bold', 'Arial';
+    font-size: 20px;
+    height: 30px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.add-to-favourite-rating
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(31, 34, 44);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.rating, .add-to-favourite
+{
+    font-family: 'Montserrat-Medium', 'Arial';
+    font-size: 17px;
+}
+
+.film-card:hover
+{
+    transition: .4s;
+    box-shadow: 0 0 20px rgb(100,123,252);
+    border-color: rgb(100,123,252);
+}
+
+/* Ссылки */
+
+.footer-container
+{
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    width: 100%;
+    background-color: rgb(31, 34, 44);
+    align-items: center;
+}
+
+.create-line 
+{
+    width: 100%;
+    border-top: 3px solid white;
+}
+
+.text-contact
+{
+    margin-top: 10px;
+    color: white;
+    font-family: 'Montserrat-Regular', 'Arial';
+    font-size: 20px;
+    text-align: center;
+}
+
+.socials
+{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    width: 400px;
+    justify-content: space-around;
+}
+
+.social
+{
+    border: 2px solid white;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.social img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.social-inst, .social-vk, .social-whatsapp, .social-twitter
+{
+    transition: .4s;
+}
+
+.social-inst:hover
+{
+    background-color: rgb(214,41,118);
+}
+
+.social-vk:hover
+{
+    background-color: rgb(36,95,222);
+}
+
+.social-whatsapp:hover
+{
+    background-color: rgb(18,140,126);
+}
+
+.social-twitter:hover
+{
+    background-color: rgb(27,195,246);
+}

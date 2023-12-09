@@ -19,6 +19,7 @@
                     $name = $array['name'];
                 }
             }
+            printf("<h1>$name</h1>");
         ?>
 
         <script src="change.js"></script>
@@ -35,9 +36,6 @@
                     </div>
                     <div class="text-links">
                         <a href="serials.php">Сериалы</a>
-                    </div>
-                    <div class="text-links">
-                        <a href="showss.php">Шоу</a>
                     </div>
                     <div class="text-links">
                         <a href="about.php">О нас</a>
@@ -62,7 +60,7 @@
                                                 <a href='personal_acc.php' class='acc'></a>
                                             </div>
                                             <div>
-                                                <a href='logout.php' class='logout'></a>
+                                                <a href='logout.php?page_name=main' class='logout'></a>
                                             </div>
                                         </div>
                                     ");
@@ -82,7 +80,7 @@
                         <?php
                             $number = 1;
                             include "connection.php";
-                            $result = mysqli_query($descr, "SELECT * FROM films ORDER BY RAND() LIMIT 4");
+                            $result = mysqli_query($descr, "SELECT * FROM films WHERE category='film' ORDER BY RAND() LIMIT 4");
                             while($array = mysqli_fetch_array($result))
                             {
                                 printf("
@@ -116,7 +114,7 @@
                     </div>
                     <div class="card-description">
                         <div class="header-text">Откройте Вселенную Киномагии!</div>
-                        <div class="main-text">&nbsp;&nbsp;&nbsp;Киномания - это ваш билет в мир невероятных историй. Здесь вы можете наслаждаться последними фильмами, запускать сериалы, исследовать увлекательные шоу. У нас есть трейлеры, оценки, и комментарии от наших пользователей, чтобы вы могли сделать осознанный выбор. А еще, поделитесь своим мнением и участвуйте в обсуждении - ваш голос важен!
+                        <div class="main-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Киномания - это ваш билет в мир невероятных историй. Здесь вы можете наслаждаться последними фильмами, запускать сериалы, исследовать увлекательные шоу. У нас есть трейлеры, оценки, и комментарии от наших пользователей, чтобы вы могли сделать осознанный выбор. А еще, поделитесь своим мнением и участвуйте в обсуждении - ваш голос важен!
                         </div>
                     </div>
                     <div class="card-image right-image">
