@@ -4,6 +4,8 @@
         <link rel="icon" type="image/x-icon" href="icon.ico">
         <link rel="stylesheet" href="css/css_fonts.css">
         <link rel="stylesheet" href="css/css_films.css">
+        <link rel="stylesheet" href="css/css_header.css">
+        <link rel="stylesheet" href="css/css_footer.css">
     </head>
     <body>
         <?php
@@ -133,8 +135,8 @@
                                 $id_favourites = NULL;
                                 $result = mysqli_query($descr, "SELECT * FROM favourites WHERE user_id=$user_id AND film_id=$film_ids[$i]");
                                 while($array = mysqli_fetch_array($result)) $id_favourites = $array['id'];
-                                if($id_favourites != NULL) printf("<a href='remove_from_favourites.php?id=$id_favourites'>Удалить из избранных ✖</a>");
-                                else printf("<a href='add_to_favourites.php?user_id=$user_id&film_id=$film_ids[$i]'>Добавить в избранное</a>");
+                                if($id_favourites != NULL) printf("<a href='remove_from_favourites.php?id=$id_favourites&page=films'>Удалить из избранных ✖</a>");
+                                else printf("<a href='add_to_favourites.php?user_id=$user_id&film_id=$film_ids[$i]&page=films'>Добавить в избранное</a>");
                             }
                             else printf("<a href='auth_and_reg/auth.php'>Добавить в избранное</a>");
                             printf("</div></div></div>");
