@@ -9,17 +9,7 @@
         <?php
             session_start();
             $user_id = NULL;
-            if(isset($_SESSION["user_id"]))
-            {
-                $user_id = $_SESSION["user_id"];
-                include "connection.php";
-                $result = mysqli_query($descr, "SELECT * FROM users WHERE id=$user_id");
-                while($array = mysqli_fetch_array($result))
-                {
-                    $name = $array['name'];
-                }
-            }
-            printf("<h1>$name</h1>");
+            if(isset($_SESSION["user_id"])) $user_id = $_SESSION["user_id"];
         ?>
 
         <script src="change.js"></script>

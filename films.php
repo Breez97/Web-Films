@@ -9,17 +9,7 @@
         <?php
             session_start();
             $user_id = NULL;
-            if(isset($_SESSION["user_id"]))
-            {
-                $user_id = $_SESSION["user_id"];
-                include "connection.php";
-                $result = mysqli_query($descr, "SELECT * FROM users WHERE id=$user_id");
-                while($array = mysqli_fetch_array($result))
-                {
-                    $name = $array['name'];
-                }
-            }
-            printf("<h1>$name</h1>");
+            if(isset($_SESSION["user_id"])) $user_id = $_SESSION["user_id"];
         ?>
         <div class="header-container">
             <div class="website-navigation">
@@ -109,6 +99,7 @@
 
                 <?php
                     include "connection.php";
+                    $film_ids = [];
                     $titles = [];
                     $header_images = [];
                     $ratings = [];
@@ -116,6 +107,7 @@
                     $count = 0;
                     while($array = mysqli_fetch_array($result))
                     {
+                        $film_ids[$count] = $array['id'];
                         $titles[$count] = $array['title'];
                         $header_images[$count] = $array['header_image'];
                         $ratings[$count] = $array['rating'];
@@ -132,11 +124,28 @@
                                     <div class='film-image'>
                                         <img src='$header_images[$i]'>
                                     </div>
-                                    <div class='film-title'>$titles[$i]</div>
+                                    <div class='film-title'><a href='film_info?film_id=$film_ids[$i]'>$titles[$i]</div>
                                     <div class='add-to-favourite-rating'>
                                         <div class='rating'>Рейтинг : $ratings[$i] / 10</div>
                                         <div class='add-to-favourite'>");
-                            printf("                <a href='main.php'>Добавить в избранное</a>");
+                            if($user_id != NULL)
+                            {
+                                $id_favourites = NULL;
+                                $result = mysqli_query($descr, "SELECT * FROM favourites WHERE user_id=$user_id AND film_id=$film_ids[$i]");
+                                while($array = mysqli_fetch_array($result)) $id_favourites = $array['id'];
+                                if($id_favourites != NULL)
+                                {
+                                    printf("<a href='remove_from_favourites.php?id=$id_favourites'>Удалить из избранных</a>");
+                                }
+                                else
+                                {
+                                    printf("<a href='add_to_favourites.php?user_id=$user_id&film_id=$film_ids[$i]'>Добавить в избранное</a>");
+                                }
+                            }
+                            else
+                            {
+                                printf("<a href='auth_and_reg/auth.php'>Добавить в избранное</a>");
+                            }
                             printf("
                                         </div>
                                     </div>
