@@ -13,7 +13,7 @@
             {
                 $user_id = $_SESSION["user_id"];
                 include "connection.php";
-                $result = mysqli_query($descr, "SELECT * FROM users_auth WHERE id=$user_id");
+                $result = mysqli_query($descr, "SELECT * FROM users WHERE id=$user_id");
                 while($array = mysqli_fetch_array($result))
                 {
                     $name = $array['name'];
@@ -82,12 +82,12 @@
                         <?php
                             $number = 1;
                             include "connection.php";
-                            $result = mysqli_query($descr, "SELECT * FROM header_films ORDER BY RAND() LIMIT 4");
+                            $result = mysqli_query($descr, "SELECT * FROM films ORDER BY RAND() LIMIT 4");
                             while($array = mysqli_fetch_array($result))
                             {
                                 printf("
                                     <div class='slide s$number'>
-                                        <img src='{$array["image_link"]}'>
+                                        <img src='{$array["header_image"]}'>
                                         <div class='info'>
                                             <div class='film-title'>{$array["title"]}</div>
                                         </div>
@@ -110,11 +110,62 @@
             </div>
 
             <div class="content-container">
-                
+                <div class="card">
+                    <div class="card-image left-image">
+                        <img src="images/main_window/card_1.png">
+                    </div>
+                    <div class="card-description">
+                        <div class="header-text">Откройте Вселенную Киномагии!</div>
+                        <div class="main-text">&nbsp;&nbsp;&nbsp;Киномания - это ваш билет в мир невероятных историй. Здесь вы можете наслаждаться последними фильмами, запускать сериалы, исследовать увлекательные шоу. У нас есть трейлеры, оценки, и комментарии от наших пользователей, чтобы вы могли сделать осознанный выбор. А еще, поделитесь своим мнением и участвуйте в обсуждении - ваш голос важен!
+                        </div>
+                    </div>
+                    <div class="card-image right-image">
+                        <img src="images/main_window/card_1_1.png">
+                    </div>
+                </div>
+                <div class="card right">
+                    <div class="card-image left-image">
+                        <img src="images/main_window/card_2_1.png">
+                    </div>
+                    <div class="card-description">
+                        <div class="header-text">Ваше Место в Мире Киноискусства!</div>
+                        <div class="main-text">&nbsp;&nbsp;&nbsp;На Киномании мы предоставляем вам возможность стать частью нашего киноклуба. Здесь вы найдете множество трейлеров, эксклюзивные оценки и отзывы. Проведите вечер в компании лучших фильмов, узнайте, что смотрят ваши друзья, и делитесь своими впечатлениями. Ваш взгляд - это часть нашего киносообщества!</div>
+                    </div>
+                    <div class="card-image right-image">
+                        <img src="images/main_window/card_2.png">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image left-image">
+                        <img src="images/main_window/card_3.png">
+                    </div>
+                    <div class="card-description">
+                        <div class="header-text">Оценивайте, Комментируйте, Обсуждайте!</div>
+                        <div class="main-text">&nbsp;&nbsp;&nbsp;Киномания - это не просто сайт, это интерактивная платформа для настоящих киноманов. Оценивайте фильмы, давайте свой взгляд на сериалы, и оставляйте комментарии, чтобы поделиться своими впечатлениями. Наши обсуждения станут местом, где вы можете обменяться идеями и открыть для себя новые шедевры. Добро пожаловать в мир киномагии, где ваше мнение ценится!</div>
+                    </div>
+                    <div class="card-image right-image">
+                        <img src="images/main_window/card_3_1.png">
+                    </div>
+                </div>
             </div>
-
+            
+            <div class="create-line"></div>
             <div class="footer-container">
-
+                <div class="text-contact">Мы в социальных сетях<br>Открыты для связи в любое время</div>
+                <div class="socials">
+                    <div class="social social-inst">
+                        <a href="#"><img src="images/main_window/inst_icon.png"></a>
+                    </div>
+                    <div class="social social-vk">
+                        <a href="#"><img src="images/main_window/vk_icon.png"></a>
+                    </div>
+                    <div class="social social-whatsapp">
+                        <a href="#"><img src="images/main_window/whatsapp_icon.png"></a>
+                    </div>
+                    <div class="social social-twitter">
+                        <a href="#"><img src="images/main_window/twitter_icon.png"></a>
+                    </div>
+                </div>
             </div>
 
         </div>

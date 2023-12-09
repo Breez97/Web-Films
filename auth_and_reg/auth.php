@@ -21,7 +21,7 @@
 
                             include "../connection.php";
 
-                            $result = mysqli_query($descr, "SELECT * FROM users_auth WHERE (login='$login' OR email='$login') AND password='$password'");
+                            $result = mysqli_query($descr, "SELECT * FROM users WHERE (login='$login' OR email='$login') AND password='$password'");
                             
                             $is_found = false;
                             
