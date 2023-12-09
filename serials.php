@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Фильмы</title>
+        <title>Сериалы</title>
         <link rel="icon" type="image/x-icon" href="icon.ico">
         <link rel="stylesheet" href="css/css_fonts.css">
         <link rel="stylesheet" href="css/css_films.css">
@@ -64,7 +64,7 @@
                 $titles = [];
                 $small_images = [];
                 $genres = [];
-                $result = mysqli_query($descr, "SELECT films.title, films.small_image, films_info.genre FROM films, films_info WHERE films.category='film' AND films.id = films_info.film_id ORDER BY films.rating DESC LIMIT 3");
+                $result = mysqli_query($descr, "SELECT films.title, films.small_image, films_info.genre FROM films, films_info WHERE films.category='serial' AND films.id = films_info.film_id ORDER BY films.rating DESC LIMIT 3");
                 $count = 0;
                 while($array = mysqli_fetch_array($result))
                 {
@@ -73,11 +73,11 @@
                     $genres[$count] = $array[2];
                     $count += 1;
                 }
-                if($count == 0) printf("<div class='top-text'>На данный момент фильмов нет</div>");
+                if($count == 0) printf("<div class='top-text'>На данный момент сериалов нет</div>");
                 else
                 {
                     printf("
-                        <div class='top-text'>Топ лучших фильмов</div>
+                        <div class='top-text'>Топ лучших сериалов</div>
                         <div class='top-films-container'>
                     ");
                     for($i = 0; $i < $count && $i < 3; $i += 1)
@@ -103,7 +103,7 @@
                     $titles = [];
                     $header_images = [];
                     $ratings = [];
-                    $result = mysqli_query($descr, "SELECT * FROM films WHERE category='film'");
+                    $result = mysqli_query($descr, "SELECT * FROM films WHERE category='serial'");
                     $count = 0;
                     while($array = mysqli_fetch_array($result))
                     {
@@ -115,7 +115,7 @@
                     }
                     if($count != 0)
                     {
-                        printf("<div class='top-text'>Подборка фильмов</div>");
+                        printf("<div class='top-text'>Подборка сериалов</div>");
                         for($i = 0; $i < $count; $i += 1)
                         {
                             if($i % 3 == 0) printf("<div class='cards-container'>");

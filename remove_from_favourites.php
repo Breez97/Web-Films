@@ -4,7 +4,7 @@
     {
         $id_favourites = $_GET['id'];
         $query = mysqli_query($descr, "DELETE FROM favourites WHERE id=$id_favourites");
-        header("Location: films.php");
-        exit();
     }
+    header("Location: films.php");
+    exit();
 ?>
