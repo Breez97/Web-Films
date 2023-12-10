@@ -98,47 +98,6 @@ a
     width: 100%;
 }
 
-.input-box 
-{
-    min-width: 270px;
-    height: 45px;
-    line-height: 30px;
-    padding: 0 10px;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    outline: none;
-    background-color: #f8fafc;
-    color: #0d0c22;
-    transition: .5s ease;
-    font-size: 18px;
-    font-family: 'Montserrat-Regular', 'Arial';
-}
-
-.input-box:focus, input:hover, .input-box-area:focus
-{
-    outline: none;
-    border-color: rgba(129, 140, 248);
-    background-color: #fff;
-    box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
-}
-
-.input-box-area
-{
-    line-height: 30px;
-    padding: 0 10px;
-    width: 500px;
-    height: 150px;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    outline: none;
-    background-color: #f8fafc;
-    color: #0d0c22;
-    transition: .5s ease;
-    font-size: 18px;
-    font-family: 'Montserrat-Regular', 'Arial';
-    resize: none;
-}
-
 .text-info
 {
     margin: 10px 20px 0 20px;
