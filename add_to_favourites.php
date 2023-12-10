@@ -5,6 +5,7 @@
         if($_GET['page'] == 'films') $page_name = "films.php";
         else if($_GET['page'] == 'serials') $page_name = "serials.php";
         else if($_GET['page'] == 'personal_acc') $page_name = "personal_acc.php";
+        else if($_GET['page'] == 'search') $page_name = "search.php";
         else $page_name = $_GET['page'];
         $user_id = $_GET['user_id'];
         $film_id = $_GET['film_id'];

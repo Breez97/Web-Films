@@ -102,6 +102,8 @@
             </div>
         </div>
 
+        <div class="create-line"></div>
+
         <div class="main-container">            
             <div class="text-container">
                 <?php

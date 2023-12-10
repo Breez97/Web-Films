@@ -64,6 +64,8 @@
             </div>
         </div>
 
+        <div class="create-line"></div>
+
         <?php
             include "connection.php";
             $title = NULL;

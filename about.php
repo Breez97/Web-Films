@@ -58,6 +58,8 @@
             </div>
         </div>
 
+        <div class="create-line"></div>
+
         <div class="main-container">
             <div class="main-text">Техническая поддержка</div>
             <div class="support-text">Мы с удовольствием ответим на интересующие вас вопросы</div>
