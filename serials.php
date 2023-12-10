@@ -126,7 +126,7 @@
                                     <div class='film-image'>
                                         <img src='$header_images[$i]'>
                                     </div>
-                                    <div class='film-title'><a href='film_info?film_id=$film_ids[$i]'>$titles[$i]</a></div>
+                                    <div class='film-title'><a href='film_info.php?film_id=$film_ids[$i]'>$titles[$i]</a></div>
                                     <div class='add-to-favourite-rating'>
                                         <div class='rating'>Рейтинг : $ratings[$i] / 10</div>
                                         <div class='add-to-favourite'>");

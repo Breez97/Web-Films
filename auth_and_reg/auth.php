@@ -14,27 +14,36 @@
 
                         $login = NULL;
                         $password = NULL;
+                        $is_admin = 0;
 
                         if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $login = $_POST["login_input"];
                             $password = $_POST["password_input"];
 
                             include "../connection.php";
-
                             $result = mysqli_query($descr, "SELECT * FROM users WHERE (login='$login' OR email='$login') AND password='$password'");
-                            
-                            $is_found = false;
-                            
-                            while ($array = mysqli_fetch_array($result)) {
+                            $is_found = 0;
+                            while ($array = mysqli_fetch_array($result)) 
+                            {
                                 $user_id = $array['id'];
-                                $is_found = true;
+                                $is_admin = $array['is_admin'];
+                                $is_found = 1;
                             }
 
-                            if ($is_found) {
+                            if ($is_found == 1) 
+                            {
                                 session_start();
                                 $_SESSION['user_id'] = $user_id;
-                                header("Location: ../main.php");
-                                exit();
+                                if($is_admin == 0)
+                                {
+                                    header("Location: ../main.php");
+                                    exit();
+                                }
+                                else
+                                {
+                                    header("Location: admin.php");
+                                    exit();
+                                }
                             }
                         }
                     ?>
@@ -52,10 +61,7 @@
                         <input type="password" placeholder="Пароль" name="password_input" class="input-field" required>
 
                         <?php
-                            if($login != NULL && $is_found == 0)
-                            {
-                                printf("<div class='error-text'>Неверный логин или пароль</div>");
-                            }
+                            if($login != NULL && $is_found == 0) printf("<div class='error-text'>Неверный логин или пароль</div>");
                         ?>
 
                         <button type="submit">Войти</button>

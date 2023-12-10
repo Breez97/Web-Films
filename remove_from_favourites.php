@@ -4,6 +4,7 @@
     {
         if($_GET['page'] == 'films') $page_name = "films.php";
         if($_GET['page'] == 'serials') $page_name = "serials.php";
+        if($_GET['page'] == 'personal_acc') $page_name = "personal_acc.php";
         $id_favourites = $_GET['id'];
         $query = mysqli_query($descr, "DELETE FROM favourites WHERE id=$id_favourites");
     }
