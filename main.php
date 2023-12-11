@@ -10,6 +10,12 @@
             session_start();
             $user_id = NULL;
             if(isset($_SESSION["user_id"])) $user_id = $_SESSION["user_id"];
+            include "connection.php";
+            $result = mysqli_query($descr, "SELECT * FROM users WHERE is_admin=1");
+            while($array = mysqli_fetch_array($result))
+            {
+                if($array['id'] == $user_id) include "logout.php";
+            }
         ?>
 
         <script src="change.js"></script>
