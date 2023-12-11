@@ -17,7 +17,7 @@
         while($array = mysqli_fetch_array($result)) $is_found = 1;
         if($is_found == 0)
         {
-            $query = mysqli_query($descr, "INSERT INTO users(id, name, login, password, email) VALUES(NULL, '$name', '$login', '$password', '$email')");
+            $query = mysqli_query($descr, "INSERT INTO users(id, is_admin, name, login, password, email) VALUES(NULL, 0, '$name', '$login', '$password', '$email')");
             $is_found_new_user = 0;
             if($query)
             {
