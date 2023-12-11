@@ -32,6 +32,7 @@
 
                             if ($is_found == 1) 
                             {
+                                session_destroy();
                                 session_start();
                                 $_SESSION['user_id'] = $user_id;
                                 if($is_admin == 0)
@@ -41,7 +42,7 @@
                                 }
                                 else
                                 {
-                                    header("Location: admin.php");
+                                    header("Location: ../admin/admin.php");
                                     exit();
                                 }
                             }
