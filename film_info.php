@@ -210,7 +210,7 @@
                     printf("
                         <form action='add_comment_and_rating.php' method='POST'>
                             <div class='comment-film-name'>
-                                <input class='input-box' type='number' placeholder='Оценка' name='new_rating' required min=0 max=10>
+                                <input class='input-box' type='number' step='0.1' placeholder='Оценка' name='new_rating' required min=0 max=10>
                             </div>
                             <div class='comment-film-name'>
                                 <textarea class='input-box-area' placeholder='Комментарий' name='new_comment' required maxlength=100></textarea>
@@ -255,7 +255,7 @@
                             printf("
                                 <form action='change_comment_and_rating.php' method='POST'>
                                     <div class='comment-film-name'>
-                                        <input class='input-box' type='number' placeholder='Оценка' name='new_rating' required min=0 max=10 value=$rating>
+                                        <input class='input-box' type='number' step='0.1' placeholder='Оценка' name='new_rating' required min=0 max=10 value=$rating>
                                     </div>
                                     <div class='comment-film-name'>
                                         <textarea class='input-box-area' placeholder='Комментарий' name='new_comment' required maxlength=1000>$comment</textarea>

@@ -36,7 +36,7 @@
                     </tr>
                     <tr>
                         <td class='input-name'>Рейтинг : </td>
-                        <td><input type='float' placeholder='Рейтинг' class='input' name='new_rating' min=0 max=10></td>
+                        <td><input type='number' step='0.1' placeholder='Рейтинг' class='input' name='new_rating' min=0 max=10></td>
                     </tr>
                     <tr>
                         <td class='input-name'>Описание : </td>
