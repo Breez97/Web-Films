@@ -1,12 +1,11 @@
 <html>
     <head>
         <title>Личный аккаунт</title>
-        <link rel="icon" type="image/x-icon" href="icon.ico">
-        <link rel="stylesheet" href="css/css_fonts.css">
-        <link rel="stylesheet" href="css/css_header.css">
-        <link rel="stylesheet" href="css/css_personal_acc.css">
-        <link rel="stylesheet" href="css/css_footer.css">
-        <link rel="stylesheet" href="css/css_films.css">
+        <link rel="icon" type="image/x-icon" href="../icon.ico">
+        <link rel="stylesheet" href="../css/css_fonts.css">
+        <link rel="stylesheet" href="../css/css_common.css">
+        <link rel="stylesheet" href="../css/css_personal_acc.css">
+        <link rel="stylesheet" href="../css/css_films_serials.css">
     </head>
     <body>
         <?php
@@ -58,48 +57,10 @@
             }
         ?>
         <div class="header-container">
-            <div class="website-navigation">
-                <div class="logo">
-                    <a href="main.php" class="logo-button">Киномания</a>
-                </div>
-                <div class="text-links">
-                    <a href="films.php">Фильмы</a>
-                </div>
-                <div class="text-links">
-                    <a href="serials.php">Сериалы</a>
-                </div>
-                <div class="text-links">
-                    <a href="about.php">О нас</a>
-                </div>
-                <div class="search-authorization">
-                    <div>
-                        <a href="search.php" class="search"></a>
-                    </div>
-                    <div>
-                        <?php
-                            if($user_id == NULL)
-                            {
-                                printf("
-                                    <a href='auth_and_reg/auth.php' class='authorization'></a>
-                                ");
-                            }
-                            else
-                            {
-                                printf("
-                                    <div class='search-authorization'>
-                                        <div>
-                                            <a href='personal_acc.php' class='acc'></a>
-                                        </div>
-                                        <div>
-                                            <a href='logout.php?page_name=main' class='logout'></a>
-                                        </div>
-                                    </div>
-                                ");
-                            }
-                        ?>
-                    </div>
-                </div>
-            </div>
+            <?php
+                include "../common/header.php";
+                print_header($user_id, 'films');
+            ?>
         </div>
 
         <div class="create-line"></div>
@@ -107,7 +68,7 @@
         <div class="main-container">            
             <div class="text-container">
                 <?php
-                    include "connection.php";
+                    include "../common/connection.php";
                     $result = mysqli_query($descr, "SELECT * FROM users WHERE id=$user_id");
                     while($array = mysqli_fetch_array($result))
                     {
@@ -209,7 +170,7 @@
                 <div class="top-text">Избранное</div>
                 <div class="selection-container">
                     <?php
-                        include "connection.php";
+                        include "../common/connection.php";
                         $ids = [];
                         $count_favourites = 0;
                         $result = mysqli_query($descr, "SELECT * FROM favourites WHERE user_id=$user_id");
@@ -248,13 +209,13 @@
                                 printf("
                                     <div class='film-card'>
                                         <div class='film-image'>
-                                            <img src='$header_images[$i]'>
+                                            <img src='../$header_images[$i]'>
                                         </div>
-                                        <div class='film-title'><a href='film_info.php?film_id=$film_ids[$i]'>$titles[$i]</a></div>
+                                        <div class='film-title'><a href='../common/film_info.php?film_id=$film_ids[$i]'>$titles[$i]</a></div>
                                         <div class='add-to-favourite-rating'>
                                             <div class='rating'>Рейтинг : $ratings[$i] / 10</div>
                                             <div class='add-to-favourite'>
-                                                <a href='remove_from_favourites.php?id=$id_favourites&page=personal_acc'>Удалить из избранных ✖</a>
+                                                <a href='../common/remove_from_favourites.php?id=$id_favourites&page=personal_acc'>Удалить из избранных ✖</a>
                                             </div>
                                         </div>
                                     </div>
@@ -269,7 +230,7 @@
             <div class="comments-container">
                 <div class="top-text">Ваши оценки и комментарии</div>
                 <?php
-                    include "connection.php";
+                    include "../common/connection.php";
                     $ids = [];
                     $films_ids = [];
                     $films_titles = [];
@@ -292,7 +253,7 @@
                         printf("
                             <div class='comment-container'>
                                 <div class='comment-film-name'>
-                                    <a href='film_info.php?film_id=$film_ids[$i]'>$films_titles[$i]</a>
+                                    <a href='../common/film_info.php?film_id=$film_ids[$i]'>$films_titles[$i]</a>
                                 </div>
                                 <div class='comment-film-rating'>
                                     Ваша оценка: $ratings[$i] / 10
@@ -307,24 +268,7 @@
             </div>
         </div>
 
-        <div class="create-line"></div>
-
-        <div class="footer-container">
-            <div class="text-contact">Мы в социальных сетях<br>Открыты для связи в любое время</div>
-            <div class="socials">
-                <div class="social social-inst">
-                    <a href="#"><img src="images/main_window/inst_icon.png"></a>
-                </div>
-                <div class="social social-vk">
-                    <a href="#"><img src="images/main_window/vk_icon.png"></a>
-                </div>
-                <div class="social social-whatsapp">
-                    <a href="#"><img src="images/main_window/whatsapp_icon.png"></a>
-                </div>
-                <div class="social social-twitter">
-                    <a href="#"><img src="images/main_window/twitter_icon.png"></a>
-                </div>
-            </div>
-        </div>
+        <?php include "../common/footer.php"; ?>
+        
     </body>
 </html>

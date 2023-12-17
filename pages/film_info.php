@@ -2,10 +2,9 @@
     <head>
         <title>Обзор</title>
         <link rel="icon" type="image/x-icon" href="icon.ico">
-        <link rel="stylesheet" href="css/css_fonts.css">
-        <link rel="stylesheet" href="css/css_header.css">
-        <link rel="stylesheet" href="css/css_footer.css">
-        <link rel="stylesheet" href="css/css_film_info.css">
+        <link rel="stylesheet" href="../css/css_fonts.css">
+        <link rel="stylesheet" href="../css/css_common.css">
+        <link rel="stylesheet" href="../css/css_film_info.css">
     </head>
     <body>
         <?php
@@ -20,54 +19,16 @@
         ?>
 
         <div class="header-container">
-            <div class="website-navigation">
-                <div class="logo">
-                    <a href="main.php" class="logo-button">Киномания</a>
-                </div>
-                <div class="text-links">
-                    <a href="films.php">Фильмы</a>
-                </div>
-                <div class="text-links">
-                    <a href="serials.php">Сериалы</a>
-                </div>
-                <div class="text-links">
-                    <a href="about.php">О нас</a>
-                </div>
-                <div class="search-authorization">
-                    <div>
-                        <a href="search.php" class="search"></a>
-                    </div>
-                    <div>
-                        <?php
-                            if($user_id == NULL)
-                            {
-                                printf("
-                                    <a href='auth_and_reg/auth.php' class='authorization'></a>
-                                ");
-                            }
-                            else
-                            {
-                                printf("
-                                    <div class='search-authorization'>
-                                        <div>
-                                            <a href='personal_acc.php' class='acc'></a>
-                                        </div>
-                                        <div>
-                                            <a href='logout.php?page_name=main' class='logout'></a>
-                                        </div>
-                                    </div>
-                                ");
-                            }
-                        ?>
-                    </div>
-                </div>
-            </div>
+            <?php
+                include "../common/header.php";
+                print_header($user_id, 'films');
+            ?>
         </div>
 
         <div class="create-line"></div>
 
         <?php
-            include "connection.php";
+            include "../common/connection.php";
             $title = NULL;
             $description = NULL;
             $header_image = NULL;
@@ -85,7 +46,7 @@
 
             printf("
                 <div class='header-image'>
-                    <img src='$header_image'>
+                    <img src='../$header_image'>
                 </div>
                 <div class='description-container'>
                     <div class='film-title'>$title</div>
@@ -98,7 +59,7 @@
                 printf("
                 <div class='description-container'>
                     <div class='film-genre'>Рейтинг : $rating / 10</div>
-                    <form action='auth_and_reg/auth.php' method='POST'>
+                    <form action='../auth_and_reg/auth.php' method='POST'>
                         <button type='submit'>Добавить в избранное</button>
                     </form>
                 </div>
@@ -276,22 +237,7 @@
 
         <div class="create-line"></div>
 
-        <div class="footer-container">
-            <div class="text-contact">Мы в социальных сетях<br>Открыты для связи в любое время</div>
-            <div class="socials">
-                <div class="social social-inst">
-                    <a href="#"><img src="images/main_window/inst_icon.png"></a>
-                </div>
-                <div class="social social-vk">
-                    <a href="#"><img src="images/main_window/vk_icon.png"></a>
-                </div>
-                <div class="social social-whatsapp">
-                    <a href="#"><img src="images/main_window/whatsapp_icon.png"></a>
-                </div>
-                <div class="social social-twitter">
-                    <a href="#"><img src="images/main_window/twitter_icon.png"></a>
-                </div>
-            </div>
-        </div>
+        <?php include "../common/footer.php"; ?>
+
     </body>
 </html>

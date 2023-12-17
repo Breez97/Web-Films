@@ -21,8 +21,6 @@ a
     height: 100%;
 }
 
-/* Заголовок */
-
 .header-container 
 {
     display: flex;
@@ -222,9 +220,6 @@ a:not(.logo-button):hover
     z-index: 1;
 }
 
-
-/* Основной контент */
-
 .content-container
 {
     display: flex;
@@ -314,8 +309,6 @@ a:not(.logo-button):hover
 {
     margin-left: 10px;
 }
-
-/* Ссылки */
 
 .footer-container
 {

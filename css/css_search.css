@@ -1,18 +1,3 @@
-body
-{
-    background-color: rgb(23, 25, 32);
-    margin: 0;
-    padding: 0;
-}
-
-a 
-{
-    text-decoration: none;
-    color: inherit;
-    background: none;
-    transition: .4s;
-}
-
 .main-container
 {
     display: flex;
@@ -85,24 +70,4 @@ a
     font-family: 'Montserrat-Bold', 'Arial';
     font-size: 20px;
     margin-top: 10px;
-}
-
-button
-{
-    height: 50px;
-    width: 300px;
-    border: 0;
-    background: rgb(37, 70, 255);
-    border-radius: 7px;
-    outline: none;
-    color: white;
-    cursor: pointer;
-    font-size: 20px;
-    transition: .4s;
-}
-
-button:hover
-{
-    transition: .4s;
-    background: rgb(245,0,97);
 }

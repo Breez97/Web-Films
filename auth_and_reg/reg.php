@@ -4,6 +4,7 @@
         <link rel="icon" type="image/x-icon" href="../icon.ico">
         <link rel="stylesheet" href="../css/css_auth_reg.css">
         <link rel="stylesheet" href="../css/css_fonts.css">
+        <link rel="stylesheet" href="../css/css_common.css">
     </head>
     <body>
         <table class="form-container" height=70%>
@@ -53,7 +54,7 @@
                         <button type="submit">Зарегистрироваться</button>
                     </form>
                     <div class="login-text_small">Уже есть аккаунт? <a href="auth.php"><b>Войти</b></a></div>
-                    <form action="../main.php" method="POST">
+                    <form action="../main/main.php" method="POST">
                         <button type="submit">Вернуться на главную</button>
                     </form>
                 </td>

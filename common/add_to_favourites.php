@@ -2,8 +2,8 @@
     include "connection.php";
     if(isset($_GET['user_id']) && isset($_GET['film_id']) && isset($_GET['page']))
     {
-        if($_GET['page'] == 'films') $page_name = "films.php";
-        else if($_GET['page'] == 'serials') $page_name = "serials.php";
+        if($_GET['page'] == 'films') $page_name = "../pages/films.php";
+        else if($_GET['page'] == 'serials') $page_name = "../pages/serials.php";
         else if($_GET['page'] == 'personal_acc') $page_name = "personal_acc.php";
         else if($_GET['page'] == 'search') $page_name = "search.php";
         else $page_name = $_GET['page'];

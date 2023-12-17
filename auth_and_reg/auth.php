@@ -4,6 +4,7 @@
         <link rel="icon" type="image/x-icon" href="../icon.ico">
         <link rel="stylesheet" href="../css/css_fonts.css">
         <link rel="stylesheet" href="../css/css_auth_reg.css">
+        <link rel="stylesheet" href="../css/css_common.css">
     </head>
     <body>
         <table class="form-container" height=50%>
@@ -20,7 +21,7 @@
                             $login = $_POST["login_input"];
                             $password = $_POST["password_input"];
 
-                            include "../connection.php";
+                            include "../common/connection.php";
                             $result = mysqli_query($descr, "SELECT * FROM users WHERE (login='$login' OR email='$login') AND password='$password'");
                             $is_found = 0;
                             while ($array = mysqli_fetch_array($result)) 
@@ -37,7 +38,7 @@
                                 $_SESSION['user_id'] = $user_id;
                                 if($is_admin == 0)
                                 {
-                                    header("Location: ../main.php");
+                                    header("Location: ../main/main.php");
                                     exit();
                                 }
                                 else
@@ -68,7 +69,7 @@
                         <button type="submit">Войти</button>
                     </form>
                     <div class="login-text_small">Нет аккаунта? <a href="reg.php"><b>Зарегистрироваться</b></a></div>
-                    <form action="../main.php" method="POST">
+                    <form action="../main/main.php" method="POST">
                         <button type="submit">Вернуться на главную</button>
                     </form>
                 </td>
