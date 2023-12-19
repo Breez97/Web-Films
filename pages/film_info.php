@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Обзор</title>
-        <link rel="icon" type="image/x-icon" href="icon.ico">
+        <link rel="icon" type="image/x-icon" href="../icon.ico">
         <link rel="stylesheet" href="../css/css_fonts.css">
         <link rel="stylesheet" href="../css/css_common.css">
         <link rel="stylesheet" href="../css/css_film_info.css">
@@ -76,7 +76,7 @@
                     printf("
                     <div class='description-container'>
                         <div class='film-genre'>Рейтинг : $rating / 10</div>
-                        <form action='add_to_favourites.php?user_id=$user_id&film_id=$film_id&page=film_info.php?film_id=$film_id' method='POST'>
+                        <form action='../common/add_to_favourites.php?user_id=$user_id&film_id=$film_id&page=film_info&film_id=$film_id' method='POST'>
                             <button type='submit'>Добавить в избранное</button>
                         </form>
                     </div>
@@ -90,7 +90,7 @@
                     printf("
                     <div class='description-container'>
                         <div class='film-genre'>Рейтинг : $rating / 10</div>
-                        <form action='remove_from_favourites.php?id=$id&page=film_info.php?film_id=$film_id' method='POST'>
+                        <form action='../common/remove_from_favourites.php?id=$id&page=film_info.php?film_id=$film_id' method='POST'>
                             <button type='submit'>Удалить из избранных</button>
                         </form>
                     </div>
@@ -169,7 +169,7 @@
                 if($need_to_add == 1)
                 {
                     printf("
-                        <form action='add_comment_and_rating.php' method='POST'>
+                        <form action='../common/add_comment_and_rating.php' method='POST'>
                             <div class='comment-film-name'>
                                 <input class='input-box' type='number' step='0.1' placeholder='Оценка' name='new_rating' required min=0 max=10>
                             </div>
@@ -204,7 +204,7 @@
                                 <form action='film_info.php?film_id=$film_id&change=1' method='POST'>
                                     <button type='submit'>Изменить</button>
                                 </form>
-                                <form action='remove_comment_and_rating.php' method='POST'>
+                                <form action='../common/remove_comment_and_rating.php' method='POST'>
                                     <input type='hidden' name='film_id' value=$film_id>
                                     <input type='hidden' name='user_id' value=$user_id>
                                     <button type='submit'>Удалить</button>
@@ -214,7 +214,7 @@
                         else
                         {
                             printf("
-                                <form action='change_comment_and_rating.php' method='POST'>
+                                <form action='../common/change_comment_and_rating.php' method='POST'>
                                     <div class='comment-film-name'>
                                         <input class='input-box' type='number' step='0.1' placeholder='Оценка' name='new_rating' required min=0 max=10 value=$rating>
                                     </div>

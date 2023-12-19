@@ -211,7 +211,7 @@
                                         <div class='film-image'>
                                             <img src='../$header_images[$i]'>
                                         </div>
-                                        <div class='film-title'><a href='../common/film_info.php?film_id=$film_ids[$i]'>$titles[$i]</a></div>
+                                        <div class='film-title'><a href='film_info.php?film_id=$film_ids[$i]'>$titles[$i]</a></div>
                                         <div class='add-to-favourite-rating'>
                                             <div class='rating'>Рейтинг : $ratings[$i] / 10</div>
                                             <div class='add-to-favourite'>
@@ -253,7 +253,7 @@
                         printf("
                             <div class='comment-container'>
                                 <div class='comment-film-name'>
-                                    <a href='../common/film_info.php?film_id=$film_ids[$i]'>$films_titles[$i]</a>
+                                    <a href='film_info.php?film_id=$film_ids[$i]'>$films_titles[$i]</a>
                                 </div>
                                 <div class='comment-film-rating'>
                                     Ваша оценка: $ratings[$i] / 10
