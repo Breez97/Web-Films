@@ -2,7 +2,7 @@
     if(isset($_GET['film_id']))
     {
         $film_id = $_GET['film_id'];
-        include "../connection.php";
+        include "../common/connection.php";
         $query = mysqli_query($descr, "DELETE FROM films WHERE films.id=$film_id");
         $query = mysqli_query($descr, "DELETE FROM films_info WHERE film_id=$film_id");
         header("Location: films_db.php");

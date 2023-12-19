@@ -3,12 +3,12 @@
         <title>Обновление фильма</title>
         <link rel="icon" type="image/x-icon" href="../icon.ico">
         <link rel="stylesheet" href="../css/css_fonts.css">
-        <link rel="stylesheet" href="../css/css_admin.css">
+        <link rel="stylesheet" href="../css/css_admin_func.css">
     </head>
     <body>
         <?php
             include "admin_session.php";
-            include "../connection.php";
+            include "../common/connection.php";
             if(isset($_GET['film_id']))
             {
                 $film_id = $_GET['film_id'];
@@ -26,7 +26,7 @@
             }
             else
             {
-                header('Location: films_db_update.php');
+                header('Location: film_db.php');
                 exit();
             }
         ?>
@@ -36,7 +36,7 @@
                 <table width=90%>
                     <tr>
                         <td class='input-name'>Название : </td>
-                        <td><input type='text' placeholder='Название' class='input' name='new_title' <?printf("value=$old_title");?> required></td>
+                        <td><input type='text' placeholder='Название' class='input' name='new_title' <?printf("value='$old_title'");?> required></td>
                     </tr>
                     <tr>
                         <td class='input-name'>Категория : </td>
@@ -73,7 +73,7 @@
                     </tr>
                     <tr>
                         <td class='input-name'>Жанры : </td>
-                        <td><input type='text' placeholder='Жанры' class='input' name='new_genre' <?php printf("value=$old_genres");?> required></td>
+                        <td><input type='text' placeholder='Жанры' class='input' name='new_genre' <?php printf("value='$old_genres'");?> required></td>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -86,7 +86,7 @@
                 </table>
             </form>
             <div class='button-container-row-1'>
-                <form action='films_db_update.php'>
+                <form action='films_db.php'>
                     <button type='submit'>Вернуться назад</button>
                 </form>
             </div>

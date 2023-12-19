@@ -9,7 +9,7 @@
         $new_description = $_POST['new_description'];
         $new_genre = $_POST['new_genre'];
 
-        include "../connection.php";
+        include "../common/connection.php";
         $query = mysqli_query($descr, "UPDATE films SET title='$new_title', category='$new_category', rating=$new_rating WHERE id=$film_id");
         $query = mysqli_query($descr, "UPDATE films_info SET description='$new_description', genre='$new_genre' WHERE film_id=$film_id");
         

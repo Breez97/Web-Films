@@ -1,14 +1,14 @@
 <html>
     <head>
-        <title>Обновление пользователя</title>
+        <title>Админ панель</title>
         <link rel="icon" type="image/x-icon" href="../icon.ico">
         <link rel="stylesheet" href="../css/css_fonts.css">
-        <link rel="stylesheet" href="../css/css_admin.css">
+        <link rel="stylesheet" href="../css/css_admin_func.css">
     </head>
     <body>
         <?php
             include "admin_session.php";
-            include "../connection.php";
+            include "../common/connection.php";
             if(isset($_GET['user_id']))
             {
                 $user_id = $_GET['user_id'];
@@ -24,7 +24,7 @@
             }
             else
             {
-                header("Location: users_db_update.php");
+                header("Location: users_db.php");
                 exit();
             }
         ?>

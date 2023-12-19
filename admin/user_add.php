@@ -1,9 +1,9 @@
 <html>
     <head>
-        <title>Добавление пользователя</title>
+        <title>Админ панель</title>
         <link rel="icon" type="image/x-icon" href="../icon.ico">
         <link rel="stylesheet" href="../css/css_fonts.css">
-        <link rel="stylesheet" href="../css/css_admin.css">
+        <link rel="stylesheet" href="../css/css_admin_func.css">
     </head>
     <body>
         <?php
@@ -14,7 +14,7 @@
             <form action='user_add_func.php' method='POST' enctype="multipart/form-data">
                 <table width=70% align="center">
                     <tr>
-                        <td class='input-name'>Имя : </td>
+                        <td class='input-name'>Имя Фамилия : </td>
                         <td><input type='text' placeholder='Имя Фамилия' class='input' name='new_name' required></td>
                     </tr>
                     <tr>

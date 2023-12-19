@@ -8,7 +8,7 @@
         $new_admin = 0;
         if(isset($_POST['new_admin'])) $new_admin = 1;
 
-        include "../connection.php";
+        include "../common/connection.php";
         $result = mysqli_query($descr, "SELECT * FROM users WHERE login='$new_login' OR email='$new_email'");
         $is_found = 0;
         while($array = mysqli_fetch_array($result)) $is_found = 1;
@@ -21,7 +21,7 @@
         }
         else
         {
-            header("Location: users_db_add.php");
+            header("Location: users_add.php");
             exit();
         }
     }

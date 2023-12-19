@@ -10,7 +10,7 @@
         $password = $_POST['password_new'];
         $email = $_POST['email_new'];
         
-        include "../connection.php";
+        include "../common/connection.php";
 
         $result = mysqli_query($descr, "SELECT * FROM users WHERE login='$login' OR email='$email'");
         $is_found = 0;
@@ -31,7 +31,7 @@
                 {
                     session_start();
                     $_SESSION['user_id'] = $user_id;
-                    header("Location: ../main.php");
+                    header("Location: ../main/main.php");
                     exit();
                 }
             }

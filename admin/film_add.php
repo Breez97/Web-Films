@@ -3,7 +3,7 @@
         <title>Добавление фильма</title>
         <link rel="icon" type="image/x-icon" href="../icon.ico">
         <link rel="stylesheet" href="../css/css_fonts.css">
-        <link rel="stylesheet" href="../css/css_admin.css">
+        <link rel="stylesheet" href="../css/css_admin_func.css">
     </head>
     <body>
         <?php
@@ -44,11 +44,11 @@
                     </tr>
                     <tr>
                         <td class='input-name'>Жанры : </td>
-                        <td><input type='text' placeholder='Категория' class='input' name='new_genre' required></td>
+                        <td><input type='text' placeholder='Жанры' class='input' name='new_genre' required></td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <div class='button-container-row'>
+                            <div class='button-container'>
                                 <button type='submit'>Добавить</button>
                             </div>
                         </td>

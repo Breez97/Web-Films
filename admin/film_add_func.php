@@ -16,7 +16,7 @@
         move_uploaded_file($_FILES['new_header_image']['tmp_name'], $header_images_dir . $_FILES['new_header_image']['name']);
         move_uploaded_file($_FILES['new_small_image']['tmp_name'], $small_images_dir . $_FILES['new_small_image']['name']);
 
-        include "../connection.php";
+        include "../common/connection.php";
         $query = mysqli_query($descr, "INSERT INTO films(id, title, category, header_image, small_image, rating) VALUES (NULL, '$new_title', '$new_category', '$new_header_image', '$new_small_image', $new_rating)");
         $result = mysqli_query($descr, "SELECT * FROM films ORDER BY id DESC LIMIT 1");
         while($array = mysqli_fetch_array($result)) $last_id = $array['id'];
