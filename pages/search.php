@@ -27,8 +27,11 @@
             }
             if(isset($_GET['film'])) $is_film = 1;
             if(isset($_GET['serial'])) $is_serial = 1;
-            if(isset($_GET['down'])) $is_down = 1;
-            if(isset($_GET['up'])) $is_up = 1;
+            if(isset($_GET['rating_selection']))
+            {
+                if($_GET['rating_selection'] == "up") $is_up = 1;
+                if($_GET['rating_selection'] == "down") $is_down = 1;
+            }
         ?>
         <div class="header-container">
             <?php
@@ -61,10 +64,11 @@
                 <input type='checkbox' id='serial' name='serial' <?php if($is_serial == 1) printf("checked");?>>
                 <label for="category" class='cl-checkbox'>Сериал</label>
             </div>
-            <div class='filter-text'>Рейтинг : 
-                <input type='checkbox' id='up' name='up' <?php if($is_up == 1) printf("checked");?>>
+            <div class='filter-text'>
+                Рейтинг : 
+                <input type='radio' name='rating_selection' value='up' <?php if($is_up == 1) printf("checked");?>>
                 <label for="up" class='cl-checkbox'>↑</label>
-                <input type='checkbox' id='down' name='down' <?php if($is_down == 1) printf("checked");?>>
+                <input type='radio' name='rating_selection' value='down' <?php if($is_down == 1) printf("checked");?>>
                 <label for="down" class='cl-checkbox'>↓</label>
             </div>
             <input type='hidden' name='search_input' value='<?php printf("$search_input");?>'>

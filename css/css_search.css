@@ -42,6 +42,11 @@
     cursor: pointer;
     transition: background-color .3s ease-in-out;
 }
+
+button
+{
+    font-size: 20px;
+}
   
 .input-button:hover 
 {

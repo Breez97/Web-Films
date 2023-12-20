@@ -21,7 +21,7 @@
         $result = mysqli_query($descr, "SELECT * FROM films ORDER BY id DESC LIMIT 1");
         while($array = mysqli_fetch_array($result)) $last_id = $array['id'];
         $query = mysqli_query($descr, "INSERT INTO films_info(id, film_id, description, genre) VALUES (NULL, $last_id, '$new_description','$new_genre')");
-        header("Location: films_db.php");
+        header("Location: film_db.php");
         exit();
     }
     else

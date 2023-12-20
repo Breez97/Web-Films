@@ -42,7 +42,7 @@
                 </table>
             </form>
             <div class='button-container-row-2'>
-                <form action='users_db.php'>
+                <form action='user_db.php'>
                     <button type='submit'>Вернуться назад</button>
                 </form>
             </div>

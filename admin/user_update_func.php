@@ -22,7 +22,7 @@
         }
         else
         {
-            header("Location: users_db_update.php");
+            header("Location: user_update.php");
             exit();
         }
     }

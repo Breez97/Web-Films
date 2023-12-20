@@ -23,7 +23,7 @@
             if($user_id == NULL) header("Location: main.php");
             if(isset($_POST['update_name']) && isset($_POST['update_login']) && isset($_POST['update_email']) && isset($_POST['update_password']))
             {
-                include "connection.php";
+                include "../common/connection.php";
 
                 $result = mysqli_query($descr, "SELECT * FROM users WHERE id=$user_id");
                 while($array = mysqli_fetch_array($result))
@@ -248,21 +248,25 @@
                         $count += 1;
                     }
 
-                    for ($i = 0; $i < $count; $i += 1) 
+                    if($count == 0) printf("<div class='top-text-error'>Пока вы не оставили оценок и комментариев</div>");
+                    else
                     {
-                        printf("
-                            <div class='comment-container'>
-                                <div class='comment-film-name'>
-                                    <a href='film_info.php?film_id=$film_ids[$i]'>$films_titles[$i]</a>
+                        for ($i = 0; $i < $count; $i += 1) 
+                        {
+                            printf("
+                                <div class='comment-container'>
+                                    <div class='comment-film-name'>
+                                        <a href='film_info.php?film_id=$film_ids[$i]'>$films_titles[$i]</a>
+                                    </div>
+                                    <div class='comment-film-rating'>
+                                        Ваша оценка: $ratings[$i] / 10
+                                    </div>
+                                    <div class='comment-film-comment'>
+                                        $comments[$i]
+                                    </div>
                                 </div>
-                                <div class='comment-film-rating'>
-                                    Ваша оценка: $ratings[$i] / 10
-                                </div>
-                                <div class='comment-film-comment'>
-                                    $comments[$i]
-                                </div>
-                            </div>
-                        ");
+                            ");
+                        }
                     }
                 ?>
             </div>
