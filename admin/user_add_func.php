@@ -16,7 +16,7 @@
         if($is_found == 0)
         {
             $query = mysqli_query($descr, "INSERT INTO users(id, is_admin, name, login, password, email) VALUES (NULL, $new_admin, '$new_name', '$new_login', '$new_password', '$new_email')");
-            header("Location: user_db.php");
+            header("Location: users_db.php");
             exit();
         }
         else
