@@ -43,7 +43,7 @@
                                 }
                                 else
                                 {
-                                    header("Location: ../admin/admin.php");
+                                    header("Location: ../admin_ajax/admin.php");
                                     exit();
                                 }
                             }

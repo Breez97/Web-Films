@@ -195,14 +195,28 @@ select
     color: white;
 }
 
-.input-1
-{
-    font-family: 'Montserrat-Medium', 'Arial';
-    margin-top: 10px;
+textarea {
+    font-family: 'Montserrat-Regular', 'Arial';
+    width: 300px;
     min-height: 50px;
-    width: 400px;
-    padding: 0 16px;
-    color: white;
-    font-size: 17px;
-    text-align: center;
+    max-height: 75px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(50, 57, 79);
+    font-size: 14px;
+    color: #ffffff;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+textarea:hover {
+    border-color: #007bff;
 }
