@@ -52,28 +52,28 @@
                 {
                     printf("
                         <div class='film-container'>
-                            <div class='film-title-text'>$titles[$i]</div>
-                            <div class='film-main-text'>$categories[$i]</div>
+                            <div name='title' class='film-title-text'>$titles[$i]</div>
+                            <div name='category' class='film-main-text'>$categories[$i]</div>
                             <div class='components-container'>
                                 <div class='main-image'>
                                     <div class='film-main-text'>Заглавная картинка</div>
-                                    <img src='../$header_images[$i]' width='200px'>
+                                    <img name='main-image-src' src='../$header_images[$i]' width='200px'>
                                 </div>
                                 <div class='small-image'>
                                     <div class='film-main-text'>Маленькая картинка</div>
-                                    <img src='../$small_images[$i]' width='150px'>
+                                    <img name='small-image-src' src='../$small_images[$i]' width='150px'>
                                 </div>
                                 <div class='description-container'>
                                     <div class='film-main-text'>Описание</div>
-                                    <div class='description-text'>$descriptions[$i]</div>
+                                    <div name='description' class='description-text'>$descriptions[$i]</div>
                                 </div>
                                 <div class='rating-container'>
                                     <div class='film-main-text'>Рейтинг</div>
-                                    <div class='description-text'>$ratings[$i] / 10</div>
+                                    <div name='rating' class='description-text'>$ratings[$i] / 10</div>
                                 </div>
                                 <div class='genre-container'>
                                     <div class='film-main-text'>Жанр</div>
-                                    <div class='description-text'>$genres[$i]</div>
+                                    <div name='genre' class='description-text'>$genres[$i]</div>
                                 </div>
                             </div>
                             <div class='buttons-container'>
@@ -106,10 +106,30 @@
                         <div class="film-main-text size">Описание</div>
                         <textarea name="new-description"></textarea>
                         <div class="film-main-text size">Рейтинг (от 0 до 10)</div>
-                        <input type="number" class="input-field" name="new-rating" placeholder="Рейтинг" min="0" max="10" required>
+                        <input type="number" class="input-field" name="new-rating" placeholder="Рейтинг" min="0" max="10" step="0.1" required>
                         <div class="film-main-text size">Жанр</div>
                         <input type="text" class="input-field" name="new-genre" placeholder="Жанр" required>
                         <button type='submit'>Добавить</button>
+                    </form>
+                    <form method="POST" name="update-form" enctype="multipart/form-data">
+                        <div class="film-main-text size">Название фильма</div>
+                        <input type="text" name="update-title" class="input-field" placeholder="Название" required>
+                        <div class="film-main-text size">Категория</div>
+                        <select name='update-category' id='category-select'>
+                            <option value='film'>Фильм</option>
+                            <option value='serial'>Сериал</option>
+                        </select>
+                        <div class="film-main-text size">Заглавная картинка (1920x1080)</div>
+                        <input type="file" name="update-header-image" accept="image/*">
+                        <div class="film-main-text size">Маленькая картинка (1000x1000)</div>
+                        <input type="file" name="update-small-image" accept="image/*">
+                        <div class="film-main-text size">Описание</div>
+                        <textarea name="update-description"></textarea>
+                        <div class="film-main-text size">Рейтинг (от 0 до 10)</div>
+                        <input type="number" class="input-field" name="update-rating" placeholder="Рейтинг" min="0" max="10" step="0.1" required>
+                        <div class="film-main-text size">Жанр</div>
+                        <input type="text" class="input-field" name="update-genre" placeholder="Жанр" required>
+                        <button type='submit'>Изменить</button>
                     </form>
                 </div>
             </div>
@@ -119,6 +139,6 @@
 
         <script src="./scripts/jquery.js"></script>
         <script src="./scripts/films_common.js"></script>
-        <script src="./scripts/films_add.js"></script>
+        <script src="./scripts/films.js"></script>
     </body>
 </html>

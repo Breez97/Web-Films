@@ -61,38 +61,40 @@
 			}
 		}
 
-		$response['title'] = $_POST['new-title'];
-		$response['category'] = $_POST['new-category'];
-		$response['description'] = $_POST['new-description'];
-		$response['rating'] = $_POST['new-rating'];
-		$response['genre'] = $_POST['new-genre'];
+		if($response['error'] == NULL) {
+			$response['title'] = $_POST['new-title'];
+			$response['category'] = $_POST['new-category'];
+			$response['description'] = $_POST['new-description'];
+			$response['rating'] = $_POST['new-rating'];
+			$response['genre'] = $_POST['new-genre'];
 
-		if (empty($response['description'])) {
-			$response['error'] .= "Описание не должно быть пустым\n";
-		}
-
-		include("../../common/connection.php");
-
-		$newTitle = $response['title'];
-		$newHeaderImage = $response['headerImageFullName'];
-		$newSmallImage = $response['smallImageFullName'];
-		$newRating = $response['rating'];
-		$newDescription = $response['description'];
-		$newGenre = $response['genre'];
-		$newCategory = $response['category'];
-		$response['category'] = ($newCategory == 'film') ? "Фильм" : "Сериал";
-
-		$resultSelect = mysqli_query($descr, "SELECT * FROM films WHERE title='$newTitle' AND category='$newCategory'");
-		if (mysqli_num_rows($resultSelect) > 0) {
-			$response['error'] .= "Такой фильм уже добавлен\n";
-		} else {
-			$resultInsert = mysqli_query($descr, "INSERT INTO films(id, title, category, header_image, small_image, rating) VALUE (NULL, '$newTitle', '$newCategory', '$newHeaderImage', '$newSmallImage', '$newRating')");
-			$resultSelectLastId = mysqli_query($descr, "SELECT * FROM films ORDER BY id DESC LIMIT 1");
-			while ($array = mysqli_fetch_array($resultSelectLastId)) {
-				$last_id = $array['id'];
-				$response['id'] = $last_id;
+			if (empty($response['description'])) {
+				$response['error'] .= "Описание не должно быть пустым\n";
 			}
-			$queryInsertInfo = mysqli_query($descr, "INSERT INTO films_info (id, film_id, description, genre) VALUES (NULL, $last_id, '$newDescription', '$newGenre')");
+
+			include("../../common/connection.php");
+
+			$newTitle = $response['title'];
+			$newHeaderImage = $response['headerImageFullName'];
+			$newSmallImage = $response['smallImageFullName'];
+			$newRating = $response['rating'];
+			$newDescription = $response['description'];
+			$newGenre = $response['genre'];
+			$newCategory = $response['category'];
+			$response['category'] = ($newCategory == 'film') ? "Фильм" : "Сериал";
+
+			$resultSelect = mysqli_query($descr, "SELECT * FROM films WHERE title='$newTitle' AND category='$newCategory'");
+			if (mysqli_num_rows($resultSelect) > 0) {
+				$response['error'] .= "Такой фильм уже добавлен\n";
+			} else {
+				$resultInsert = mysqli_query($descr, "INSERT INTO films(id, title, category, header_image, small_image, rating) VALUE (NULL, '$newTitle', '$newCategory', '$newHeaderImage', '$newSmallImage', '$newRating')");
+				$resultSelectLastId = mysqli_query($descr, "SELECT * FROM films ORDER BY id DESC LIMIT 1");
+				while ($array = mysqli_fetch_array($resultSelectLastId)) {
+					$last_id = $array['id'];
+					$response['id'] = $last_id;
+				}
+				$queryInsertInfo = mysqli_query($descr, "INSERT INTO films_info (id, film_id, description, genre) VALUES (NULL, $last_id, '$newDescription', '$newGenre')");
+			}
 		}
 
 		header('Content-Type: application/json');
