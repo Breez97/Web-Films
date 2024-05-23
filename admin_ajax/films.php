@@ -77,8 +77,8 @@
                                 </div>
                             </div>
                             <div class='buttons-container'>
-                                <div class='film-main-text'><a href='film_update.php?film_id=$ids[$i]'>Изменить</a></div>
-                                <div class='film-main-text'><a href='film_delete_func.php?film_id=$ids[$i]'>Удалить</a></div>
+                                <div class='film-main-text'><a class='update-button' data-id='$ids[$i]'>Изменить</a></div>
+                                <div class='film-main-text'><a class='delete-button' data-id='$ids[$i]'>Удалить</a></div>
                             </div>
                         </div>
                     ");
@@ -118,6 +118,7 @@
         </div>
 
         <script src="./scripts/jquery.js"></script>
+        <script src="./scripts/films_common.js"></script>
         <script src="./scripts/films_add.js"></script>
     </body>
 </html>

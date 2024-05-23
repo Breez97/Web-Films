@@ -72,8 +72,6 @@
 		}
 
 		include("../../common/connection.php");
-		
-		$newCategory = ($_POST['new-category'] == 'Сериал') ? 'serial' : 'film';
 
 		$newTitle = $response['title'];
 		$newHeaderImage = $response['headerImageFullName'];
@@ -81,6 +79,8 @@
 		$newRating = $response['rating'];
 		$newDescription = $response['description'];
 		$newGenre = $response['genre'];
+		$newCategory = $response['category'];
+		$response['category'] = ($newCategory == 'film') ? "Фильм" : "Сериал";
 
 		$resultSelect = mysqli_query($descr, "SELECT * FROM films WHERE title='$newTitle' AND category='$newCategory'");
 		if (mysqli_num_rows($resultSelect) > 0) {
