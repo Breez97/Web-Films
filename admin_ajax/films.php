@@ -131,6 +131,12 @@
                         <input type="text" class="input-field" name="update-genre" placeholder="Жанр" required>
                         <button type='submit'>Изменить</button>
                     </form>
+                    <form method="POST" name="delete-form">
+                        <div class="film-main-text yes-no-size" name="film-title"></div>
+                        <div class="film-main-text size">Вы точно хотите удалить?</div>
+                        <button name="yes-button" class="yes-no-button">Да</button>
+                        <button name="no-button" class="yes-no-button">Нет</button>
+                    </form>
                 </div>
             </div>
             <div class="popup-info-container">

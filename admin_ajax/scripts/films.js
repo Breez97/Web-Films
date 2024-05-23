@@ -32,6 +32,7 @@ $(document).ready(function() {
     });
 
     $('.main-container').on('click', '.update-button', updateFilm);
+    $('.main-container').on('click', '.delete-button', deleteFilm);
 });
 
 function addNewFilm(data) {
@@ -101,7 +102,10 @@ function closePopUpInfo() {
 }
 
 function updateFilm() {
-    console.log($(this));
+    $('form[name=add-form]').hide();
+    $('form[name=update-form]').show();
+    $('form[name=delete-form]').hide();
+
     let filmId = $(this).data('id');
     let parentContainer = $(this).closest('.film-container');
     let currentTitle = parentContainer.find('div.film-title-text');
@@ -111,9 +115,6 @@ function updateFilm() {
     let currentDescription = parentContainer.find('div.description-text').first();
     let currentRating = parentContainer.find('div.rating-container .description-text');
     let currentGenre = parentContainer.find('div.genre-container .description-text');
-
-    $('form[name=add-form]').hide();
-    $('form[name=update-form]').show();
 
     $('.popup-bg').fadeIn(300);
     let form = $('form[name=update-form]');
@@ -211,6 +212,57 @@ function updateFilm() {
                     $('.popup-info-container').prepend(newPopupInfo);
                     closePopUpInfo();
                 }
+            },
+            error: function(xhr, status, error) {
+                console.log(status, error);
+            }
+        });
+    });
+}
+
+function deleteFilm() {
+    $('form[name=add-form]').hide();
+    $('form[name=update-form]').hide();
+    $('form[name=delete-form]').show();
+    $('.popup-bg').fadeIn(300);
+
+    let filmId = $(this).data('id');
+    let parentContainer = $(this).closest('.film-container');
+    let currentTitle = parentContainer.find('.film-title-text').text();
+
+    $('form[name=delete-form]').find('div[name=film-title]').text(currentTitle);
+
+    let buttonNo = $('form[name=delete-form]').find('button[name=no-button]');
+    let buttonYes = $('form[name=delete-form]').find('button[name=yes-button]');
+
+    buttonNo.off('click').on('click', function(event) {
+        event.preventDefault();
+        $('.popup-bg').fadeOut(300);        
+        $('form[name=delete-form]').hide();
+    });
+
+    buttonYes.off('click').on('click', function(event) {
+        event.preventDefault();
+        let data = {
+            'id': filmId,
+            'title': currentTitle
+        };
+        $.ajax({
+            url: '../admin_ajax/handlers/films_delete.php',
+            type: 'POST',
+            data: data,
+            success: function(data) {
+                $('.popup-info-container').empty();
+                let popupInfo = `
+                    <div class="popup-info">
+                        <img class="close-popup-info" src="./img/cross.svg" alt="icon">
+                        <div class="film-main-text size-info">Информация о удалении</div>
+                        <div class="film-main-text">Фильм ${data.title} успешно удален</div>
+                    </div>
+                `;
+                $('.popup-info-container').prepend(popupInfo);
+                closePopUpInfo();
+                parentContainer.remove();
             },
             error: function(xhr, status, error) {
                 console.log(status, error);

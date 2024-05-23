@@ -96,7 +96,6 @@
 				$queryInsertInfo = mysqli_query($descr, "INSERT INTO films_info (id, film_id, description, genre) VALUES (NULL, $last_id, '$newDescription', '$newGenre')");
 			}
 		}
-
 		header('Content-Type: application/json');
 		echo json_encode($response);
 	} else {
