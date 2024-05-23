@@ -7,6 +7,10 @@
         <link rel="stylesheet" href="../css/css_common.css">
     </head>
     <body>
+        <?php
+            include "../common/header.php";
+            print_header($user_id, 'films');
+        ?>
         <table class="form-container" height=50%>
             <tr>
                 <td class="image-column"><img src="../images/auth_reg/login_img.png"></td>

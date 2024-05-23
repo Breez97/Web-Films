@@ -87,35 +87,37 @@
         </div>
 
         <div class="popup-bg">
-            <div class="popup">
+            <div class="popup-add">
                 <img class="close-popup" src="./img/cross.svg" alt="icon">
                 <div class="form-container">
                     <div class='header-text'>Добавление фильма</div>
-                    <form method="POST">
+                    <form method="POST" name="add-form" enctype="multipart/form-data">
                         <div class="film-main-text size">Название фильма</div>
-                        <input type="text" class="input-field" placeholder="Название" required>
+                        <input type="text" name="new-title" class="input-field" placeholder="Название" required>
                         <div class="film-main-text size">Категория</div>
-                        <select name='new_category' id='category-select'>
+                        <select name='new-category' id='category-select'>
                             <option value='film'>Фильм</option>
                             <option value='serial'>Сериал</option>
                         </select>
                         <div class="film-main-text size">Заглавная картинка (1920x1080)</div>
-                        <input type="file" name="header_image" accept="image/*" required>
+                        <input type="file" name="header-image" accept="image/*" required>
                         <div class="film-main-text size">Маленькая картинка (1000x1000)</div>
-                        <input type="file" name="header_image" accept="image/*" required>
+                        <input type="file" name="small-image" accept="image/*" required>
                         <div class="film-main-text size">Описание</div>
-                        <textarea></textarea>
+                        <textarea name="new-description"></textarea>
                         <div class="film-main-text size">Рейтинг (от 0 до 10)</div>
-                        <input type="number" class="input-field" placeholder="Рейтинг" min="0" max="10" required>
+                        <input type="number" class="input-field" name="new-rating" placeholder="Рейтинг" min="0" max="10" required>
                         <div class="film-main-text size">Жанр</div>
-                        <input type="text" class="input-field" placeholder="Жанр" required>
+                        <input type="text" class="input-field" name="new-genre" placeholder="Жанр" required>
                         <button type='submit'>Добавить</button>
                     </form>
                 </div>
             </div>
+            <div class="popup-info-container">
+            </div>
         </div>
 
         <script src="./scripts/jquery.js"></script>
-        <script src="./scripts/films.js"></script>
+        <script src="./scripts/films_add.js"></script>
     </body>
 </html>

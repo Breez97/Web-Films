@@ -7,6 +7,10 @@
         <link rel="stylesheet" href="../css/css_common.css">
     </head>
     <body>
+        <?php
+            include "../common/header.php";
+            print_header($user_id, 'films');
+        ?>
         <table class="form-container" height=70%>
             <tr>
 
