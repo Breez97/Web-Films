@@ -90,8 +90,7 @@
 				$resultInsert = mysqli_query($descr, "INSERT INTO films(id, title, category, header_image, small_image, rating) VALUE (NULL, '$newTitle', '$newCategory', '$newHeaderImage', '$newSmallImage', '$newRating')");
 				$resultSelectLastId = mysqli_query($descr, "SELECT * FROM films ORDER BY id DESC LIMIT 1");
 				while ($array = mysqli_fetch_array($resultSelectLastId)) {
-					$last_id = $array['id'];
-					$response['id'] = $last_id;
+					$response['id'] = $array['id']
 				}
 				$queryInsertInfo = mysqli_query($descr, "INSERT INTO films_info (id, film_id, description, genre) VALUES (NULL, $last_id, '$newDescription', '$newGenre')");
 			}

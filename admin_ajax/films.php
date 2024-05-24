@@ -144,7 +144,6 @@
         </div>
 
         <script src="./scripts/jquery.js"></script>
-        <script src="./scripts/films_common.js"></script>
         <script src="./scripts/films.js"></script>
     </body>
 </html>
