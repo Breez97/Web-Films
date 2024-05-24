@@ -241,7 +241,7 @@ function deleteFilm() {
     $('form[name=update-form]').hide();
     $('form[name=delete-form]').show();
 
-    let infoDeleteText =  $('form[name=delete-form]').find('div.size');
+    let infoDeleteText = $('form[name=delete-form]').find('div.size');
     infoDeleteText.text('Вы точно хотите удалить?');
     $('form[name=delete-form]').find('button[name=yes-button]').show();
     $('form[name=delete-form]').find('button[name=no-button]').text('Нет');
