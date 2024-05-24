@@ -224,6 +224,16 @@ function deleteFilm() {
     $('form[name=add-form]').hide();
     $('form[name=update-form]').hide();
     $('form[name=delete-form]').show();
+
+    let infoDeleteText =  $('form[name=delete-form]').find('div.size');
+
+    infoDeleteText.text('Вы точно хотите удалить?');
+    $('form[name=delete-form]').find('button[name=yes-button]').show();
+    $('form[name=delete-form]').find('button[name=no-button]').text('Нет');
+
+    let formContainer = $('form[name=delete-form]').closest('div.form-container');
+    formContainer.find('div.header-text').text('Удаление фильма');
+
     $('.popup-bg').fadeIn(300);
 
     let filmId = $(this).data('id');
@@ -236,9 +246,11 @@ function deleteFilm() {
     let buttonYes = $('form[name=delete-form]').find('button[name=yes-button]');
 
     buttonNo.off('click').on('click', function(event) {
-        event.preventDefault();
-        $('.popup-bg').fadeOut(300);        
-        $('form[name=delete-form]').hide();
+        event.preventDefault();  
+        $('.popup-bg').fadeOut(300);		
+        $('.popup-info').fadeOut(300);
+		$('.popup-info-container').empty();      
+        $('form[name=delete-form]').fadeOut(300);
     });
 
     buttonYes.off('click').on('click', function(event) {
@@ -261,7 +273,11 @@ function deleteFilm() {
                     </div>
                 `;
                 $('.popup-info-container').prepend(popupInfo);
+                infoDeleteText.text('Запись удалена');
+                $('form[name=delete-form]').find('button[name=yes-button]').hide();
+                $('form[name=delete-form]').find('button[name=no-button]').text('Закрыть окно');
                 closePopUpInfo();
+                formContainer.closest('div.popup-add').css('min-height', '100px');
                 parentContainer.remove();
             },
             error: function(xhr, status, error) {
