@@ -87,12 +87,18 @@
 			if (mysqli_num_rows($resultSelect) > 0) {
 				$response['error'] .= "Такой фильм уже добавлен\n";
 			} else {
-				$resultInsert = mysqli_query($descr, "INSERT INTO films(id, title, category, header_image, small_image, rating) VALUE (NULL, '$newTitle', '$newCategory', '$newHeaderImage', '$newSmallImage', '$newRating')");
-				$resultSelectLastId = mysqli_query($descr, "SELECT * FROM films ORDER BY id DESC LIMIT 1");
-				while ($array = mysqli_fetch_array($resultSelectLastId)) {
-					$response['id'] = $array['id']
+				$resultInsert = mysqli_query($descr, "INSERT INTO films(id, title, category, header_image, small_image, rating) VALUES (NULL, '$newTitle', '$newCategory', '$newHeaderImage', '$newSmallImage', '$newRating')");
+				if (!$resultInsert) {
+					$response['error'] .= "Ошибка при вставке данных в таблицу films\n";
+				} else {
+					$last_id = mysqli_insert_id($descr);
+					$resultInsertInfo = mysqli_query($descr, "INSERT INTO films_info (id, film_id, description, genre) VALUES (NULL, $last_id, '$newDescription', '$newGenre')");
+					if (!$resultInsertInfo) {
+						$response['error'] .= "Ошибка при вставке данных в таблицу films_info:\n";
+					} else {
+						$response['id'] = $last_id;
+					}
 				}
-				$queryInsertInfo = mysqli_query($descr, "INSERT INTO films_info (id, film_id, description, genre) VALUES (NULL, $last_id, '$newDescription', '$newGenre')");
 			}
 		}
 		header('Content-Type: application/json');
